@@ -1,4 +1,4 @@
-package com.company;
+package project;
 public class hien_thi_SNT {
     public static void main(String[]args){
         int i=2;
