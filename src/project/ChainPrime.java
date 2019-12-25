@@ -2,7 +2,7 @@ package project;
 
 import java.util.Scanner;
 
-public class chainPrime {
+public class ChainPrime {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter length of chain prime:");

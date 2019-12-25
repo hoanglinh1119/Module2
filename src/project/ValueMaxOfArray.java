@@ -2,7 +2,7 @@ package project;
 
 import java.util.Scanner;
 
-public class valueMaxOfArray {
+public class ValueMaxOfArray {
     public static void main(String[] args) {
         int size;
         int[] array;

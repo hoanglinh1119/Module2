@@ -1,5 +1,5 @@
 package project;
-public class hien_thi_SNT {
+public class Hien_thi_SNT {
     public static void main(String[]args){
         int i=2;
        for (i=2;i<101;i++){

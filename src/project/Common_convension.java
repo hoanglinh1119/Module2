@@ -2,7 +2,7 @@ package project;
 
 import java.util.Scanner;
 
-public class common_convension {
+public class Common_convension {
     public static void main(String[]args){
         Scanner scanner=new Scanner(System.in);
         System.out.print("Enter a:");

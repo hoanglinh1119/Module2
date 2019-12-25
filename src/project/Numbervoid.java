@@ -2,7 +2,7 @@ package project;
 
 import java.util.Scanner;
 
-public class numbervoid {
+public class Numbervoid {
     public static void main(String[]args){
         Scanner scanner=new Scanner(System.in);
         int number;

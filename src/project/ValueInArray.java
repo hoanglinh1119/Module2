@@ -2,7 +2,7 @@ package project;
 
 import java.util.Scanner;
 
-public class valueInArray {
+public class ValueInArray {
     public static void main(String[] args) {
         String[] nameStudent={"hoang","linh","nam","tu","dung","vinh","phu"};
         Scanner scanner=new Scanner(System.in);

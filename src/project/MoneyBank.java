@@ -2,7 +2,7 @@ package project;
 
 import java.util.Scanner;
 
-public class moneyBank {
+public class MoneyBank {
     public static void main(String[] args) {
         double money = 0;
         int month = 1;

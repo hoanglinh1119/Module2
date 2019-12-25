@@ -2,7 +2,7 @@ package project;
 
 import java.util.Scanner;
 
-public class dayinmonth {
+public class Dayinmonth {
     public static void main (String[]args){
         Scanner scanner=new Scanner(System.in);
         System.out.print("Which month that you want to count day? :");

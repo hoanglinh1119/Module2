@@ -2,7 +2,7 @@ package project;
 
 import java.util.Scanner;
 
-public class hien_thi_hinh {
+public class Hien_thi_hinh {
     public static void main(String[]args){
         Scanner scanner=new Scanner(System.in);
         System.out.println("menu");

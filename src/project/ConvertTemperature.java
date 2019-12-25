@@ -2,7 +2,7 @@ package project;
 
 import java.util.Scanner;
 
-public class convertTemperature {
+public class ConvertTemperature {
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
         System.out.println("menu");

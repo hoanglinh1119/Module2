@@ -2,7 +2,7 @@ package project;
 
 import java.util.Scanner;
 
-public class reverseArray {
+public class ReverseArray {
     public static void main(String[]args){
         int size;
         int[] array;
