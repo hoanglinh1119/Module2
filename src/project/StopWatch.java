@@ -12,9 +12,15 @@ public class StopWatch {
     public StopWatch(){
 
     }
+    public void setStart(){
+        this.startTime=startTime;
+    }
     public double getStart(){
         startTime=System.currentTimeMillis();
         return startTime;
+    }
+    public void setEndTime(){
+        this.endTime=endTime;
     }
     public double getEnd(){
         endTime=System.currentTimeMillis();
