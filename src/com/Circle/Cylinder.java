@@ -14,7 +14,9 @@ public class Cylinder extends Circle{
     }
     @Override
     public String toString(){
-        return "volume of Cylinder ="
+        return "Cylinder with height ="
+                +height+"\n"+
+                "volume of Cylinder ="
                 +getVolume()+"\n"
                 +super.toString();
     }
