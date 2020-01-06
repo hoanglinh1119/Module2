@@ -1,4 +1,4 @@
-package com;
+package com.Circle;
 
 public class Circle {
     private String color="green";
