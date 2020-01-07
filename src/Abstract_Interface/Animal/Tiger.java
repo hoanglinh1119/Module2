@@ -1,4 +1,4 @@
-package Abstract_Interface.Pet.Animal;
+package Abstract_Interface.Animal;
 
 public class Tiger extends Animal {
     @Override
