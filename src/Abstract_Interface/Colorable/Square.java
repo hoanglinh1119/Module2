@@ -2,7 +2,7 @@ package Abstract_Interface.Colorable;
 
 public class Square implements Colorable {
     private double side=1.0;
-    private  String color="green";
+    private  String color;
     private boolean filled=true;
     public Square(){
     }
@@ -52,6 +52,6 @@ public class Square implements Colorable {
 
     @Override
     public void howToColor() {
-        System.out.println(getColor());
+            System.out.println("Color all four sides.");
     }
 }

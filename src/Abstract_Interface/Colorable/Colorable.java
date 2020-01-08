@@ -1,5 +1,7 @@
 package Abstract_Interface.Colorable;
 
 public interface Colorable {
-    void howToColor();
+    default void howToColor(){
+        System.out.println("Color all four sides.");
+    };
 }
