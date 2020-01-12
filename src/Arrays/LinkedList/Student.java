@@ -9,7 +9,7 @@ public class Student {
     public Student() {
     }
 
-    public Student(String name, String id, int year, String location) {
+    public Student(String name, String id, int year,String location) {
         this.name = name;
         this.id = id;
         this.year = year;
