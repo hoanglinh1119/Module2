@@ -52,6 +52,9 @@ public class StudentManagerMent {
             stArrayList.get(i).disPlay();
         }
     }
+    public static void searchStudent(ArrayList<Student> studentArrayList){
+
+    }
     public static void inputStudent(ArrayList stuArrayList){
         Student student1=new Student();
         inputObjStudent(student1);
