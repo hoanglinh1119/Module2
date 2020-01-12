@@ -54,28 +54,28 @@ public class StudentTest {
         }
     }
     public static void addStudentForList(Scanner scanner,LinkedList<Student> list){
-        int vitri;
+        int addLocation;
         System.out.println("bạn muốn thêm vào vị trí nào: ");
-        vitri=scanner.nextInt();
+        addLocation=scanner.nextInt();
         System.out.println("nhập thông tin cho đối tượng cần thêm:");
         Student student=new Student(scanner.nextLine(),scanner.nextLine(),scanner.nextInt(),scanner.nextLine());
-        list.add(vitri,student);
+        list.add(addLocation,student);
         disPlay(list);
     }
     public static void removeStudentForList(Scanner scanner,LinkedList<Student> list){
-        int vitri;
+        int removeLocation;
         System.out.println("nhập vị trí cần xóa:");
-        vitri=scanner.nextInt();
-        list.remove(vitri);
+        removeLocation=scanner.nextInt();
+        list.remove(removeLocation);
         disPlay(list);
     }
     public static void editStudentForList(Scanner scanner,LinkedList<Student>list){
-        int vitri;
+        int editLocation;
         System.out.println("nhập vị trí cần sửa thông tin : ");
-        vitri=scanner.nextInt();
+        editLocation=scanner.nextInt();
         System.out.println("nhập thông tin cần sửa:");
         Student student=new Student(scanner.nextLine(),scanner.nextLine(),scanner.nextInt(),scanner.nextLine());
-        student=list.get(vitri);
+        student=list.get(editLocation);
         disPlay(list);
     }
 }
