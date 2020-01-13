@@ -117,42 +117,42 @@ public class StudentTest {
             case 1:
                 System.out.println("nhap que quan hoc vien: ");
                 String location=scanner.nextLine();
-                int count=0;
+                boolean notMatchingInformation=true;
                 for (int i=0;i<list.size();i++){
                     if (list.get(i).getLocation().equals(location)){
                         list.get(i).disPlay();
-                        count ++;
+                        notMatchingInformation=false;
                     }
                 }
-                if (count==0){
+                if (notMatchingInformation){
                     System.out.println("khong tim thay ");
                 }
                 break;
             case 2:
                 System.out.println("nhap ho va ten hoc vien: ");
                 String name=scanner.nextLine();
-                int count1=0;
+                boolean notMatchingName=true;
                 for (int i=0;i<list.size();i++){
                     if (list.get(i).getName().equals(name)){
                         list.get(i).disPlay();
-                        count1++;
+                        notMatchingName=false;
                     }
                 }
-                if(count1==0){
+                if(notMatchingName){
                     System.out.println(" khong tim thay");
                 }
                 break;
             case 3:
                 System.out.println("nhap ma hoc vien: ");
                 String id=scanner.nextLine();
-                int count2=0;
+                boolean notMatchingId=true;
                 for (int i=0;i<list.size();i++){
                     if (list.get(i).getId().equals(id)){
                         list.get(i).disPlay();
-                        count2++;
+                        notMatchingId=false;
                     }
                 }
-                if (count2==0){
+                if (notMatchingId){
                     System.out.println(" khong tim thay");
                 }
                 break;
@@ -160,14 +160,14 @@ public class StudentTest {
                 System.out.println("nhap tuoi hoc vien : ");
                 int year=scanner.nextInt();
                 scanner.nextLine();
-                int count3=0;
+                boolean notMatchingYears=true;
                 for (int i=0;i<list.size();i++){
                     if (list.get(i).getYear()==year){
                         list.get(i).disPlay();
-                        count3++;
+                        notMatchingYears=false;
                     }
                 }
-                if (count3==0){
+                if (notMatchingYears){
                     System.out.println("khong tim thay");
                 }
                 break;
