@@ -18,9 +18,10 @@ public class DecimalToBinary {
             count++;
         }
         int[] binary=new int[count];
+        System.out.println("Decimal to bibary : ");
         for (int i=0;i<binary.length;i++){
             binary[i]=DecimalToBinary.pop();
-            System.out.println(binary[i]);
+            System.out.print(binary[i]);
         }
     }
 }
