@@ -11,7 +11,7 @@ public class StudentTest {
         String id;
         int year;
         int luachon ;
-        String location;
+        String address;
         System.out.println("nhập vào số học sinh:");
         numberStudent=sc.nextInt();
         sc.nextLine();
@@ -26,8 +26,8 @@ public class StudentTest {
             year=sc.nextInt();
             sc.nextLine();
             System.out.println("nhap que quan hoc vien "+(i+1)+":");
-            location=sc.nextLine();
-            Student student=new Student(name,id,year,location);
+            address=sc.nextLine();
+            Student student=new Student(name,id,year,address);
             list.add(student);
         }
         disPlay(list);
@@ -73,8 +73,8 @@ public class StudentTest {
         int year=scanner.nextInt();
         scanner.nextLine();
         System.out.println("nhap que quan hoc vien :");
-        String location=scanner.nextLine();
-        Student student=new Student(name,id,year,location);
+        String address=scanner.nextLine();
+        Student student=new Student(name,id,year,address);
         list.add(addLocation,student);
         disPlay(list);
     }
@@ -86,9 +86,9 @@ public class StudentTest {
         disPlay(list);
     }
     public static void editStudentForList(Scanner scanner,LinkedList<Student>list){
-        int editLocation;
+        int editAddress;
         System.out.println("nhập vị trí cần sửa thông tin : ");
-        editLocation=scanner.nextInt();
+        editAddress=scanner.nextInt();
         scanner.nextLine();
         System.out.println("nhập thông tin cần sửa gom :");
         System.out.println("nhap ten hoc vien :");
@@ -99,9 +99,9 @@ public class StudentTest {
         int year=scanner.nextInt();
         scanner.nextLine();
         System.out.println("nhap que quan hoc vien :");
-        String location=scanner.nextLine();
-        Student student=new Student(name,id,year,location);
-        student=list.set(editLocation,student);
+        String address=scanner.nextLine();
+        Student student=new Student(name,id,year,address);
+        student=list.set(editAddress,student);
         disPlay(list);
     }
     public static void searchStudentForList(LinkedList<Student> list,Scanner scanner){
@@ -116,10 +116,10 @@ public class StudentTest {
         switch (luachon1){
             case 1:
                 System.out.println("nhap que quan hoc vien: ");
-                String location=scanner.nextLine();
+                String address=scanner.nextLine();
                 boolean notMatchingInformation=true;
                 for (int i=0;i<list.size();i++){
-                    if (list.get(i).getLocation().equals(location)){
+                    if (list.get(i).getAddress().equals(address)){
                         list.get(i).disPlay();
                         notMatchingInformation=false;
                     }

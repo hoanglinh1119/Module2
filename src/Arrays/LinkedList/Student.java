@@ -4,16 +4,16 @@ public class Student {
     private String name;
     private String id;
     private int year;
-    private String location;
+    private String address;
 
     public Student() {
     }
 
-    public Student(String name, String id, int year,String location) {
+    public Student(String name, String id, int year,String address) {
         this.name = name;
         this.id = id;
         this.year = year;
-        this.location = location;
+        this.address = address;
     }
 
     public String getName() {
@@ -40,14 +40,14 @@ public class Student {
         this.year = year;
     }
 
-    public String getLocation() {
-        return location;
+    public String getAddress() {
+        return address;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setAddress(String address) {
+        this.address = address;
     }
     public void disPlay(){
-        System.out.printf("%-40s%-10s%-10s%-50s%n",getName(),getId(),getYear(),getLocation());
+        System.out.printf("%-40s%-10s%-10s%-50s%n",getName(),getId(),getYear(),getAddress());
     }
 }
