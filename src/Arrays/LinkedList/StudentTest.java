@@ -1,5 +1,4 @@
 package Arrays.LinkedList;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -128,6 +127,7 @@ public class StudentTest {
                 if (count==0){
                     System.out.println("khong tim thay ");
                 }
+                break;
             case 2:
                 System.out.println("nhap ho va ten hoc vien: ");
                 String name=scanner.nextLine();
@@ -141,6 +141,7 @@ public class StudentTest {
                 if(count1==0){
                     System.out.println(" khong tim thay");
                 }
+                break;
             case 3:
                 System.out.println("nhap ma hoc vien: ");
                 String id=scanner.nextLine();
@@ -154,6 +155,7 @@ public class StudentTest {
                 if (count2==0){
                     System.out.println(" khong tim thay");
                 }
+                break;
             case 4:
                 System.out.println("nhap tuoi hoc vien : ");
                 int year=scanner.nextInt();
@@ -168,6 +170,9 @@ public class StudentTest {
                 if (count3==0){
                     System.out.println("khong tim thay");
                 }
+                break;
+            default:
+                System.out.println("ban da khong chon tim kiem");
         }
     }
 }
