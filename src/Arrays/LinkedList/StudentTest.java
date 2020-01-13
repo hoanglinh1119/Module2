@@ -112,11 +112,11 @@ public class StudentTest {
         System.out.println("tim theo tuoi : Enter 4 ");
         System.out.println("vui long chon cach tim kiem: ");
         int luachon1=scanner.nextInt();
+        scanner.nextLine();
         switch (luachon1){
             case 1:
-                System.out.println("nhap vi tri hoc vien: ");
+                System.out.println("nhap que quan hoc vien: ");
                 String location=scanner.nextLine();
-                scanner.nextLine();
                 int count=0;
                 for (int i=0;i<list.size();i++){
                     if (list.get(i).getLocation().equals(location)){
