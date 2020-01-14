@@ -9,6 +9,14 @@ public class CountTheWord {
         String word = scanner.nextLine();
         String[] strings = word.split("\\s");
         HashMap<String, Integer> hashMap = new HashMap<>();
+               putHashMap(strings,hashMap);
+            Set<String> key = hashMap.keySet();
+            for (String keys : key) {
+                System.out.println(keys+"    "+hashMap.get(keys));
+            }
+
+    }
+    public static void putHashMap(String[] strings,HashMap<String,Integer>hashMap){
         for (int i = 0; i < strings.length; i++) {
             int count = 0;
             for (int j = 0; j < strings.length; j++) {
@@ -18,11 +26,7 @@ public class CountTheWord {
             }
             hashMap.put(strings[i], count);
         }
-            Set<String> key = hashMap.keySet();
-            for (String keys : key) {
-                System.out.println(keys+"    "+hashMap.get(keys));
-            }
-
     }
 }
+
 
