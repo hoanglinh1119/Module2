@@ -24,19 +24,20 @@ public class PersonnelTest {
            listPersonnel.get(i).disPlay();
        }
         sortList(listPersonnel);
-        Queue<Personnel> nu=new LinkedList<>();
-       for (int i=0;i<count;i++){
+        Queue<Personnel> nu=new LinkedList<Personnel>();
+       for (int i=0;i<listPersonnel.size();i++){
            if (listPersonnel.get(i).getGender().equals("nu")){
                nu.add(listPersonnel.get(i));
            }
        }
-       Queue<Personnel> nam=new LinkedList<>();
-       for (int i=0;i<count;i++){
+       Queue<Personnel> nam=new LinkedList<Personnel>();
+       for (int i=0;i<listPersonnel.size();i++){
            if(listPersonnel.get(i).getGender().equals("nam")){
                nam.add(listPersonnel.get(i));
            }
        }
-       LinkedList<Personnel> hoanthanh=new LinkedList<>();
+
+       LinkedList<Personnel> hoanthanh=new LinkedList<Personnel>();
        while (!nu.isEmpty()){
            hoanthanh.add(nu.poll());
        }
@@ -48,12 +49,7 @@ public class PersonnelTest {
        }
 
     public static void sortList(LinkedList<Personnel> listPersonnel ){
-        Collections.sort(listPersonnel, new Comparator<Personnel>() {
-            @Override
-            public int compare(Personnel personnel1, Personnel personnel2) {
-                return personnel1.getName().compareTo(personnel2.getName());
-            }
-        });
+        Collections.sort(listPersonnel, Comparator.comparing(Personnel::getName));
     }
 }
 
