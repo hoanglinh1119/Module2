@@ -21,13 +21,13 @@ public class SortInsertTest {
 
                 int current;
                 for (int j=0;j<arrayInt.length;j++){
-                     for (int k=0;k<arrayInt.length;k++){
+                     for (int k=0;k<j+1;k++){
                          if(arrayInt[j]<arrayInt[k]){
                                current=arrayInt[j];
                                arrayInt[j]=arrayInt[k];
                                arrayInt[k]=current;
                          }
-                             System.out.print(arrayInt[k]);
+                             System.out.print(arrayInt[k]+" ");
                      }
                     System.out.println("-------");
 
