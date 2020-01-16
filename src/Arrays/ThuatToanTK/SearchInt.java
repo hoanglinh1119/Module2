@@ -47,7 +47,6 @@ public class SearchInt {
         }else {
             binarySearch(low,mid-1,arr,value);
         }
-
     }
        return false;
     }
