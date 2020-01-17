@@ -1,6 +1,5 @@
 package Arrays.Exception;
 
-import sun.misc.ExtensionInstallationException;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -21,6 +20,5 @@ public class TriangleException {
            }catch (InputMismatchException e){
                System.out.println("vui long nhap du lieu kieu so nguyen " +e);
            }
-
     }
 }
