@@ -27,7 +27,6 @@ public class CoppyFileInput {
     }
     public static void WriteFile(Scanner scanner,String inputFile){
         try {
-            int count=1;
             FileWriter writer=new FileWriter(inputFile);
             System.out.println("nhap noi dung file input");
             System.out.println("nhap 2 lan enter de kt.");
