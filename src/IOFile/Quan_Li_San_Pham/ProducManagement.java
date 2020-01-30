@@ -564,8 +564,6 @@ public class ProducManagement extends ProductManagementObject {
             default:
                 System.out.println("ban da khong chon tim kiem");
         }
-
-
     }
     public  void CreatFileData(Scanner scanner, ArrayList<ProductManagementObject> listProducts, String link) throws IOException {
         File file=new File(String.valueOf(link));
@@ -581,11 +579,8 @@ public class ProducManagement extends ProductManagementObject {
             bufferedWriter.write(listProduct.getHuongdansudung()+"  ");
             bufferedWriter.write(listProduct.getNgaynhapkho()+"  ");
             bufferedWriter.write(listProduct.getNgayxuatkho()+"  "+"\n");
-
-
         }
         bufferedWriter.close();
         fileWriter.close();
     }
-
 }

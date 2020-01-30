@@ -34,11 +34,5 @@ public class ProductManagementMain {
                 System.out.println("ban da khong lua chon ");
             }
         }
-
-
-
-
-
     }
-
 }
