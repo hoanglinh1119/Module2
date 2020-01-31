@@ -15,13 +15,13 @@ public class NumberPhone {
         String[] number= {"(84)-(0982243340)","(84)-(098223)"};
         pattern=Pattern.compile(numberRegex);
 
-    for (int i=0;i<number.length;i++){
-        matcher=pattern.matcher(number[i]);
-        if (matcher.find()){
-            System.out.println(number[i]+"hop le");
-        }else {
-            System.out.println(number[i]+"khong hop le");
+        for (String s : number) {
+            matcher = pattern.matcher(s);
+            if (matcher.find()) {
+                System.out.println(s + " hop le");
+            } else {
+                System.out.println(s + " khong hop le");
+            }
         }
-    }
 }
 }
