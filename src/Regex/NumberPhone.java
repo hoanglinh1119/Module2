@@ -1,5 +1,6 @@
 package Regex;
 
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,11 +12,16 @@ public class NumberPhone {
 
     public static void main(String[] args) {
 
-        String number= "(84)-(0982243340)";
+        String[] number= {"(84)-(0982243340)","(84)-(098223)"};
         pattern=Pattern.compile(numberRegex);
-        matcher=pattern.matcher(number);
+
+    for (int i=0;i<number.length;i++){
+        matcher=pattern.matcher(number[i]);
         if (matcher.find()){
-            System.out.println("hop le");
-        }else System.out.println("khong hop le");
+            System.out.println(number[i]+"hop le");
+        }else {
+            System.out.println(number[i]+"khong hop le");
+        }
     }
+}
 }
