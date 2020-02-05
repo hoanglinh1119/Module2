@@ -29,22 +29,12 @@ public class AVDictController {
             dict.put(matcher.group(1),matcher.group(2));
         }
     }
-public static void showHashMap(HashMap<String,String>dict, ArrayList<String> list) {
-    for (HashMap.Entry<String, String> entry : dict.entrySet()) {
-        list.add(entry.getKey());
-    }
-}
 public static void addWordToDict(HashMap<String,String>dict,String src,Scanner scanner) throws IOException {
+
     System.out.println("Enter a word:");
     String keyWord=scanner.nextLine();
-    boolean exist=false;
-    for (HashMap.Entry<String,String> entry:dict.entrySet()){
-        String temp=entry.getKey();
-        if (keyWord.equals(temp)) {
-            exist = true;
-            break;
-        }
-    }
+    boolean exist=checkDuplicate(dict,keyWord);
+
     if (exist){
         System.out.println("New word exist in dictionary");
     }else {
@@ -56,17 +46,12 @@ public static void addWordToDict(HashMap<String,String>dict,String src,Scanner s
         fileWriter.close();
     }
 }
+
 public static void editWordInDict(HashMap<String,String>dict,Scanner scanner,String src) throws IOException {
+
     System.out.println("Enter the word you want to correct");
     String editKeyWord=scanner.nextLine();
-    boolean exist=false;
-    for (HashMap.Entry<String,String> entry: dict.entrySet()){
-        String temp=entry.getKey();
-        if(editKeyWord.equals(temp)){
-            exist=true;
-            break;
-        }
-    }
+    boolean exist=checkDuplicate(dict,editKeyWord);
     if (exist){
         System.out.println("New meanings of words: ");
         String editValueWord=scanner.nextLine();
@@ -88,19 +73,12 @@ public static void editWordInDict(HashMap<String,String>dict,Scanner scanner,Str
         System.out.println(" Not word already exists");
     }
 }
+
 public static void searchWordInDict(HashMap<String,String>dict,Scanner scanner){
+
     System.out.println("Enter the word you want to search :");
     String searchWord=scanner.nextLine();
-    String regex=searchWord+".*";
-    Pattern pattern=Pattern.compile(regex);
-
-    for (HashMap.Entry<String,String> entry:dict.entrySet()){
-        String temp=entry.getKey();
-        Matcher matcher=pattern.matcher(temp);
-        if (matcher.find()){
-            System.out.println(temp);
-        }
-    }
+          suggestionsWord(dict,searchWord);
     System.out.println("Enter your chosen word: ");
     String searchWordInDict=scanner.nextLine();
     for (HashMap.Entry<String,String> entry:dict.entrySet()){
@@ -111,18 +89,12 @@ public static void searchWordInDict(HashMap<String,String>dict,Scanner scanner){
         }
     }
 }
+
 public static void deleteWord(HashMap<String,String>dict,Scanner scanner,String src) throws IOException {
+
       System.out.println("Find the word you want to delete");
     String findWordDelete=scanner.nextLine();
-    String regex=findWordDelete+".*";
-    Pattern pattern=Pattern.compile(regex);
-    for (HashMap.Entry<String,String> entry:dict.entrySet()){
-        String temp=entry.getKey();
-        Matcher matcher=pattern.matcher(temp);
-        if(matcher.find()){
-            System.out.println(temp);
-        }
-    }
+       suggestionsWord(dict,findWordDelete);
     System.out.println("Enter the word you want to delete:");
     String wordDelete=scanner.nextLine();
     dict.remove(wordDelete);
@@ -137,4 +109,27 @@ public static void deleteWord(HashMap<String,String>dict,Scanner scanner,String 
     fileWriter.close();
 }
 
+public  static boolean checkDuplicate(HashMap<String,String>dict,String checkDuplicateWord){
+
+    boolean exist=false;
+    for(HashMap.Entry<String,String>entry:dict.entrySet()){
+        String temp=entry.getKey();
+        if(checkDuplicateWord.equals(temp)){
+            exist=true;
+            break;
+        }
+    }
+    return exist;
+}
+public static void suggestionsWord(HashMap<String,String> dict,String suggestions){
+    String regex=suggestions+".*";
+    Pattern pattern=Pattern.compile(regex);
+    for (HashMap.Entry<String,String> entry:dict.entrySet()){
+        String temp=entry.getKey();
+        Matcher matcher=pattern.matcher(temp);
+        if (matcher.find()){
+            System.out.println(temp);
+        }
+    }
+}
 }
