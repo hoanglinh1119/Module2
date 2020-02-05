@@ -10,7 +10,7 @@ public class DictMain {
     public static void main(String[] args) throws IOException {
 
         Scanner scanner=new Scanner(System.in);
-        String src = "/home/hoanglinh/IdeaProjects/hoanglinh/src/CaseStudy2/anhviet109K.txt";
+        String src = "anhviet109K.txt";
         HashMap<String,String> dict=new HashMap<>();
         AVDictController.readFile(src,dict);
         String next;

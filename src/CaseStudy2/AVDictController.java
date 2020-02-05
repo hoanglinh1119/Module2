@@ -1,18 +1,14 @@
 package CaseStudy2;
 
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class AVDictController {
-
-
     public static void readFile(String src,HashMap<String,String> dict) throws IOException {
 
         InputStream inputStream=new FileInputStream(src);
@@ -40,10 +36,7 @@ public static void addWordToDict(HashMap<String,String>dict,String src,Scanner s
     }else {
         System.out.println("The meaning of the word: ");
         String value=scanner.nextLine();
-        dict.put(keyWord,value);
-        FileWriter fileWriter=new FileWriter(src,true);
-        fileWriter.write("@"+keyWord+" /"+value+"\n\n");
-        fileWriter.close();
+        writeMore(dict,value,keyWord,src);
     }
 }
 
@@ -55,20 +48,7 @@ public static void editWordInDict(HashMap<String,String>dict,Scanner scanner,Str
     if (exist){
         System.out.println("New meanings of words: ");
         String editValueWord=scanner.nextLine();
-        File file=new File(String.valueOf(src));
-        FileWriter fileWriter=new FileWriter(file);
-        BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
-        for (HashMap.Entry<String,String>entry:dict.entrySet()){
-            if(entry.getKey().equals(editKeyWord)){
-                bufferedWriter.write("@"+entry.getKey()+" /");
-                bufferedWriter.write(editValueWord+"\n\n");
-            }else {
-            bufferedWriter.write("@"+entry.getKey()+" /");
-            bufferedWriter.write(entry.getValue()+"\n\n");}
-        }
-        bufferedWriter.write("__");
-        bufferedWriter.close();
-        fileWriter.close();
+        overrideAndReload(dict,src,editKeyWord,editValueWord);
     }else {
         System.out.println(" Not word already exists");
     }
@@ -81,13 +61,7 @@ public static void searchWordInDict(HashMap<String,String>dict,Scanner scanner){
           suggestionsWord(dict,searchWord);
     System.out.println("Enter your chosen word: ");
     String searchWordInDict=scanner.nextLine();
-    for (HashMap.Entry<String,String> entry:dict.entrySet()){
-        String temp=entry.getKey();
-        if (searchWordInDict.equals(temp)){
-            System.out.println(entry.getValue());
-            break;
-        }
-    }
+    searchAndDisplay(dict,searchWordInDict);
 }
 
 public static void deleteWord(HashMap<String,String>dict,Scanner scanner,String src) throws IOException {
@@ -98,17 +72,9 @@ public static void deleteWord(HashMap<String,String>dict,Scanner scanner,String 
     System.out.println("Enter the word you want to delete:");
     String wordDelete=scanner.nextLine();
     dict.remove(wordDelete);
-    File file=new File(String.valueOf(src));
-    FileWriter fileWriter=new FileWriter(file);
-    BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
-    for (HashMap.Entry<String,String>entry:dict.entrySet()){
-        bufferedWriter.write("@"+entry.getKey()+" /");
-        bufferedWriter.write(entry.getValue()+"\n\n");
-    }
-    bufferedWriter.close();
-    fileWriter.close();
+    reload(dict,src);
 }
-
+// ham
 public  static boolean checkDuplicate(HashMap<String,String>dict,String checkDuplicateWord){
 
     boolean exist=false;
@@ -121,6 +87,7 @@ public  static boolean checkDuplicate(HashMap<String,String>dict,String checkDup
     }
     return exist;
 }
+
 public static void suggestionsWord(HashMap<String,String> dict,String suggestions){
     String regex=suggestions+".*";
     Pattern pattern=Pattern.compile(regex);
@@ -131,5 +98,51 @@ public static void suggestionsWord(HashMap<String,String> dict,String suggestion
             System.out.println(temp);
         }
     }
+}
+
+public static void writeMore(HashMap<String,String>dict,String value,String keyWord,String src) throws IOException {
+    dict.put(keyWord,value);
+    FileWriter fileWriter=new FileWriter(src,true);
+    fileWriter.write("@"+keyWord+" /"+value+"\n\n");
+    fileWriter.close();
+}
+
+public static void overrideAndReload(HashMap<String,String>dict,String src,String editKeyWord,String editValueWord) throws IOException {
+    File file=new File(String.valueOf(src));
+    FileWriter fileWriter=new FileWriter(file);
+    BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
+    for (HashMap.Entry<String,String>entry:dict.entrySet()){
+        if(entry.getKey().equals(editKeyWord)){
+            bufferedWriter.write("@"+entry.getKey()+" /");
+            bufferedWriter.write(editValueWord+"\n\n");
+        }else {
+            bufferedWriter.write("@"+entry.getKey()+" /");
+            bufferedWriter.write(entry.getValue()+"\n\n");}
+    }
+    bufferedWriter.write("__");
+    bufferedWriter.close();
+    fileWriter.close();
+}
+
+public static void searchAndDisplay(HashMap<String,String>dict,String searchWordInDict){
+    for (HashMap.Entry<String,String> entry:dict.entrySet()){
+        String temp=entry.getKey();
+        if (searchWordInDict.equals(temp)){
+            System.out.println(entry.getValue());
+            break;
+        }
+    }
+}
+
+public static void reload(HashMap<String,String>dict,String src) throws IOException {
+    File file=new File(String.valueOf(src));
+    FileWriter fileWriter=new FileWriter(file);
+    BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
+    for (HashMap.Entry<String,String>entry:dict.entrySet()){
+        bufferedWriter.write("@"+entry.getKey()+" /");
+        bufferedWriter.write(entry.getValue()+"\n\n");
+    }
+    bufferedWriter.close();
+    fileWriter.close();
 }
 }
