@@ -86,15 +86,69 @@ public  void saveFile(String src, ArrayList<StudentObjects>studentObjectsArrayLi
 }
 
 
-public void display(ArrayList<StudentObjects>studentObjectsArrayList,int i){
-        System.out.println(i+1);
-        System.out.println(" Ma hoc vien :" +studentObjectsArrayList.get(i).getId());
-        System.out.println("Ho va ten : " +studentObjectsArrayList.get(i).getName());
-        System.out.println(" Email : "+studentObjectsArrayList.get(i).getEmail());
-        System.out.println("Chuong trinh hoc : "+studentObjectsArrayList.get(i).getCourse());
-        System.out.println(" Trang thai : "+studentObjectsArrayList.get(i).getStatus());
-        System.out.println(" Diem so : "+studentObjectsArrayList.get(i).getScore());
+public void display(ArrayList<StudentObjects>studentObjectsArrayList,int i) {
+    System.out.println(i + 1);
+    System.out.println(" Ma hoc vien :" + studentObjectsArrayList.get(i).getId());
+    System.out.println("Ho va ten : " + studentObjectsArrayList.get(i).getName());
+    System.out.println(" Email : " + studentObjectsArrayList.get(i).getEmail());
+    System.out.println("Chuong trinh hoc : " + studentObjectsArrayList.get(i).getCourse());
+    System.out.println(" Trang thai : " + studentObjectsArrayList.get(i).getStatus());
+    System.out.println(" Diem so : " + studentObjectsArrayList.get(i).getScore());
+}
+public void addStudent(ArrayList<StudentObjects>studentObjectsArrayList,Scanner scanner,String src) throws IOException {
+    System.out.println("nhap ma hoc vien");
+    String Id = scanner.nextLine();
+    System.out.println("nhap ho ten :");
+    String Name = scanner.nextLine();
+    System.out.println("Email :");
+    String Email = scanner.nextLine();
+    System.out.println("Chuong trinh hoc");
+    String Course = scanner.nextLine();
+    System.out.println("Trang thai ");
+    String status = scanner.nextLine();
+    System.out.println(" Diem so ");
+    String score = scanner.nextLine();
+    StudentObjects studentObjects = new StudentObjects(Id, Name, Email, Course, status, score);
+    studentObjectsArrayList.add(studentObjects);
+    saveFile(src, studentObjectsArrayList);
+}
+public void editStudent(ArrayList<StudentObjects>studentObjectsArrayList,Scanner scanner,String src) throws IOException {
+    System.out.println("nhap ma ho vien :");
+    String id=scanner.nextLine();
+    for (int i=0;i<studentObjectsArrayList.size();i++) {
+       if( studentObjectsArrayList.get(i).getId().equals(id)){
+           System.out.println("nhap ma hoc vien");
+           String Id = scanner.nextLine();
+           System.out.println("nhap ho ten :");
+           String Name = scanner.nextLine();
+           System.out.println("Email :");
+           String Email = scanner.nextLine();
+           System.out.println("Chuong trinh hoc");
+           String Course = scanner.nextLine();
+           System.out.println("Trang thai ");
+           String status = scanner.nextLine();
+           System.out.println(" Diem so ");
+           String score = scanner.nextLine();
+           StudentObjects studentObjects = new StudentObjects(Id, Name, Email, Course, status, score);
+           studentObjectsArrayList.set(i, studentObjects);
+           saveFile(src,studentObjectsArrayList);
+       }
     }
-
-
+}
+public void removeStudent(ArrayList<StudentObjects>studentObjectsArrayList,Scanner scanner,String src){
+    System.out.println("nhap ma ho vien :");
+    String id=scanner.nextLine();
+     int temp=-1;
+    boolean exist=false;
+    for (int i=0;i<studentObjectsArrayList.size();i++){
+        if( studentObjectsArrayList.get(i).getId().equals(id)){
+            temp=i;
+            exist=true;
+            break;
+        }
+    }
+    if (exist){
+        studentObjectsArrayList.remove(temp);
+    }
+}
 }
