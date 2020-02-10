@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class StudentMain {
+public class  StudentMain {
     public static void main(String[] args) throws IOException {
         final String srcInput= "hocvien.txt";
         final String srcOutputFollowArrangeScore="sapxepdiem.txt";
