@@ -17,22 +17,23 @@ public class Controller {
    public void addNewPerson(ArrayList<Person>personArrayList, String src, Scanner scanner) throws IOException {
        System.out.println("Số điện thoai: " );
        String numberphone=scanner.nextLine();
-       checkFormat.isCheck_Phone(numberphone);
-       System.out.println("Nhóm: " );
-       String group=scanner.nextLine();
-       System.out.println("Họ và tên: " );
-       String name=scanner.nextLine();
-       System.out.println("Giới tính: " );
-       String gender=scanner.nextLine();
-       System.out.println("Địa chỉ: " );
-       String adress=scanner.nextLine();
-       System.out.println("Ngày tháng năm sinh ");
-       String birthday=scanner.nextLine();
-       System.out.println("Email " );
-       String email=scanner.nextLine();
-       Person person=new Person(numberphone,group,name,gender,adress,birthday,email);
-       personArrayList.add(person);
-       ioFile.saveFile(src,personArrayList);
+       if(checkFormat.isCheck_Phone(numberphone)){
+           System.out.println("Nhóm: " );
+           String group=scanner.nextLine();
+           System.out.println("Họ và tên: " );
+           String name=scanner.nextLine();
+           System.out.println("Giới tính: " );
+           String gender=scanner.nextLine();
+           System.out.println("Địa chỉ: " );
+           String adress=scanner.nextLine();
+           System.out.println("Ngày tháng năm sinh ");
+           String birthday=scanner.nextLine();
+           System.out.println("Email " );
+           String email=scanner.nextLine();
+           Person person=new Person(numberphone,group,name,gender,adress,birthday,email);
+           personArrayList.add(person);
+           ioFile.saveFile(src,personArrayList);
+       }else System.out.println("so dien thoai sai dinh dang");
    }
    public void editListPhoneBook(ArrayList<Person>personArrayList,Scanner scanner,String src) throws IOException {
        System.out.println("vui long nhap so dien thoai ban muon sua :");
