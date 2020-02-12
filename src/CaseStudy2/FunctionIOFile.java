@@ -1,12 +1,32 @@
 package CaseStudy2;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class FunctionIOFile {
+
+    public static void readFile(String src, HashMap<String,String> dict) throws IOException {
+
+        InputStream inputStream=new FileInputStream(src);
+        InputStreamReader inputStreamReader=new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+        Scanner scanner=new Scanner(inputStreamReader);
+        scanner.useDelimiter("\\Z");
+        String line;
+        line=scanner.next();
+        scanner.close();
+        line=line.replaceAll("\\n","_");
+
+        Pattern pattern=Pattern.compile("@(.*?) /(.*?)__");
+        Matcher matcher=pattern.matcher(line);
+        while (matcher.find()){
+            dict.put(matcher.group(1),matcher.group(2));
+        }
+    }
+
     public static void writeMore(HashMap<String,String> dict, String value, String keyWord, String src) throws IOException, IOException {
         dict.put(keyWord,value);
         FileWriter fileWriter=new FileWriter(src,true);
@@ -31,15 +51,6 @@ public class FunctionIOFile {
         fileWriter.close();
     }
 
-    public static void searchAndDisplay(HashMap<String,String>dict,String searchWordInDict){
-        for (HashMap.Entry<String,String> entry:dict.entrySet()){
-            String temp=entry.getKey();
-            if (searchWordInDict.equals(temp)){
-                System.out.println(entry.getValue());
-                break;
-            }
-        }
-    }
 
     public static void reload(HashMap<String,String>dict,String src) throws IOException {
         File file = new File(String.valueOf(src));

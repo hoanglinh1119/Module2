@@ -41,7 +41,7 @@ public class FunctionOfDictionary {
         SupportFunctionOfDict.suggestionsWord(dict,searchWord);
         System.out.println("Enter your chosen word: ");
         String searchWordInDict=scanner.nextLine();
-        FunctionIOFile.searchAndDisplay(dict,searchWordInDict);
+        SupportFunctionOfDict.searchAndDisplay(dict,searchWordInDict);
     }
 
     public static void deleteWord(HashMap<String,String>dict,Scanner scanner,String src) throws IOException {
