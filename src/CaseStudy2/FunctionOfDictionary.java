@@ -17,6 +17,7 @@ public class FunctionOfDictionary {
             System.out.println("The meaning of the word: ");
             String value=scanner.nextLine();
             FunctionIOFile.writeMore(dict,value,keyWord,src);
+            System.out.println("Complete!!!!!!");
         }
     }
 
@@ -28,7 +29,9 @@ public class FunctionOfDictionary {
         if (exist){
             System.out.println("New meanings of words: ");
             String editValueWord=scanner.nextLine();
-            FunctionIOFile.overrideAndReload(dict,src,editKeyWord,editValueWord);
+            dict.put(editKeyWord,editValueWord);
+            FunctionIOFile.reload(dict,src);
+            System.out.println("Complete!!!!!!");
         }else {
             System.out.println(" Not word already exists");
         }
@@ -41,7 +44,9 @@ public class FunctionOfDictionary {
         SupportFunctionOfDict.suggestionsWord(dict,searchWord);
         System.out.println("Enter your chosen word: ");
         String searchWordInDict=scanner.nextLine();
+        System.out.println("meaning: ");
         SupportFunctionOfDict.searchAndDisplay(dict,searchWordInDict);
+        System.out.println("Complete!!!!!!");
     }
 
     public static void deleteWord(HashMap<String,String>dict,Scanner scanner,String src) throws IOException {
@@ -53,5 +58,6 @@ public class FunctionOfDictionary {
         String wordDelete=scanner.nextLine();
         dict.remove(wordDelete);
         FunctionIOFile.reload(dict,src);
+        System.out.println("Complete!!!!!!");
     }
 }

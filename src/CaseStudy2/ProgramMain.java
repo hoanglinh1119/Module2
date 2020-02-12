@@ -8,7 +8,7 @@ public class ProgramMain {
     public static void main(String[] args) throws IOException {
 
         Scanner scanner=new Scanner(System.in);
-        String src = "anhviet109K.txt";
+        final String src = "anhviet109K.txt";
         HashMap<String,String> dict=new HashMap<>();
         FunctionIOFile.readFile(src,dict);
         String next;

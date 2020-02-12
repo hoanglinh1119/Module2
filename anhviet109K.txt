@@ -6172,7 +6172,7 @@
 
 @aftertaste /'ɑ:ftəteist/_*  danh từ_- dư vị
 
-@hello /hahaha
+@hello /hoang linh
 
 @banian day /'bæniəndei/_*  danh từ_- (hàng hải) ngày ăn không có thịt
 
@@ -26726,6 +26726,37 @@
 
 @aero-engine /'eərou'endʤin/_*  danh từ_- động cơ máy bay
 
-@ascarid /giun dua rat to
+@ascarid /'æskərid/_*  danh từ_- (y học) giun đũa
 
-__
+@annuitant /ə'nju:itənt/_*  danh từ_- người có trợ cấp hàng năm
+
+@biter /'baitə/_*  danh từ_- người cắn, vật cắn_!the biter bit_- bợm già mắc bẫy cò ke
+
+@blithe /blaið/_*  tính từ_- (thơ ca) sung sướng, vui vẻ
+
+@distracted /dis'træktid/_*  tính từ_- điên cuồng, mất trí, quẫn trí
+
+@buccaneer /,bʌkə'niə/_*  danh từ_- cướp biển_- kẻ gian hùng (trong chính trị, trong kinh doanh)_*  nội động từ_- làm nghề cướp biển
+
+@clothes /klouðz/_*  danh từ số nhiều_- quần áo_=to put on clothes+ mặc quần áo_=to put off clothes+ cởi quần áo_- quần áo bẩn (để đem giặt)
+
+@ashy-gray /'æʃi,grei/_*  tính từ_- tái nhợt, xám như tro
+
+@desecration /,desi'kreiʃn/_*  danh từ_- sự mạo phạm (thánh vật), sự báng bổ (thần thánh), sự xúc phạm (thần thánh)_- sự dâng cho tà ma quỷ dữ
+
+@beckon /'bekən/_*  động từ_- vẫy tay ra hiệu, gật đầu ra hiệu_=to beckon someone to come nearer+ vẫy tay (gật đầu) ra hiệu cho ai đến gần
+
+@carrier /'kæriə/ (carrier-pigeon) /'kæriə,pidʤin/_-pigeon) _/'kæriə,pidʤin/_*  danh từ_- người đưa, người mang; người chuyên chở_=mail carrier+ người đưa thư_- hãng vận tải_=commom carrier+ những hãng vận tải đường bộ, đường sắt và đường thuỷ_- cái đèo hang (ở xe đạp...)_- (y học) người mang mầm bệnh; vật mang mầm bệnh_- tàu chuyên chở_- (hàng hải) tàu sân bay ((cũng) air-craft carrier)_- chim bồ câu đưa thư ((cũng) carrier pigeon)_- (kỹ thuật) vật mang, vật đỡ, giá đỡ_- (vật lý) chất mang, phần tử mang_=charge carrier+ phần tử mang điện tích
+
+@billycock /'bilikɔk/_*  danh từ_- mũ quả đưa
+
+@anti-constitutional /'ænti,kɔnsti'tju:ʃənl/_*  tính từ_- trái với hiến pháp, phản hiến pháp
+
+@delegation /,deli'geiʃn/_*  danh từ_- phái đoàn, đoàn đại biểu_- sự cử đại biểu_- sự uỷ quyền, sự uỷ thác_=delegation of power+ sự uỷ quyền
+
+@adumbration /,ædʌm'breiʃn/_*  danh từ_- sự phác hoạ, bản phác hoạ_- sự cho biết, lờ mờ; hình ảnh lờ mờ_- sự báo trước, điềm báo trước_- sự che chở, sự toả bóng, bóng tối, bóng râm
+
+@cornaceous /kɔ:'neiʃəs/_*  tính từ_- (thực vật học) (thuộc) họ phù du
+
+@covetous /'kʌvitəs/_*  tính từ_- thèm thuồng, thèm muốn_=a covetous glance+ cái nhìn thèm thuồng_=to be covetous of something+ thèm muốn cái gì_- tham lam
+

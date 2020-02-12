@@ -34,22 +34,22 @@ public class FunctionIOFile {
         fileWriter.close();
     }
 
-    public static void overrideAndReload(HashMap<String,String>dict,String src,String editKeyWord,String editValueWord) throws IOException {
-        File file=new File(String.valueOf(src));
-        FileWriter fileWriter=new FileWriter(file);
-        BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
-        for (HashMap.Entry<String,String>entry:dict.entrySet()){
-            if(entry.getKey().equals(editKeyWord)){
-                bufferedWriter.write("@"+entry.getKey()+" /");
-                bufferedWriter.write(editValueWord+"\n\n");
-            }else {
-                bufferedWriter.write("@"+entry.getKey()+" /");
-                bufferedWriter.write(entry.getValue()+"\n\n");}
-        }
-        bufferedWriter.write("__");
-        bufferedWriter.close();
-        fileWriter.close();
-    }
+//    public static void overrideAndReload(HashMap<String,String>dict,String src,String editKeyWord,String editValueWord) throws IOException {
+//        File file=new File(String.valueOf(src));
+//        FileWriter fileWriter=new FileWriter(file);
+//        BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
+//        for (HashMap.Entry<String,String>entry:dict.entrySet()){
+//            if(entry.getKey().equals(editKeyWord)){
+//                bufferedWriter.write("@"+entry.getKey()+" /");
+//                bufferedWriter.write(editValueWord+"\n\n");
+//            }else {
+//                bufferedWriter.write("@"+entry.getKey()+" /");
+//                bufferedWriter.write(entry.getValue()+"\n\n");}
+//        }
+//        bufferedWriter.write("__");
+//        bufferedWriter.close();
+//        fileWriter.close();
+//    }
 
 
     public static void reload(HashMap<String,String>dict,String src) throws IOException {
