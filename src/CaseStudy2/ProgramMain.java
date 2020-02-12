@@ -4,21 +4,19 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class DictMain {
-
-
+public class ProgramMain {
     public static void main(String[] args) throws IOException {
 
         Scanner scanner=new Scanner(System.in);
         String src = "anhviet109K.txt";
         HashMap<String,String> dict=new HashMap<>();
-        AVDictController.readFile(src,dict);
+        SupportFunctionOfDict.readFile(src,dict);
         String next;
         do {
             nextProgram(dict,src,scanner);
             System.out.println("Enter 0 to exit program ");
             System.out.println("Enter any character to next program ");
-             next= scanner.nextLine();
+            next= scanner.nextLine();
         }while (!next.equals("0"));
     }
 
@@ -30,16 +28,16 @@ public class DictMain {
         scanner.nextLine();
         switch (number) {
             case 1:
-                AVDictController.addWordToDict(dict, src, scanner);
+                FunctionOfDictionary.addWordToDict(dict, src, scanner);
                 break;
             case 2:
-                AVDictController.editWordInDict(dict, scanner, src);
+                FunctionOfDictionary.repairWordInDict(dict, scanner, src);
                 break;
             case 3:
-                AVDictController.searchWordInDict(dict, scanner);
+                FunctionOfDictionary.translateWordInDict(dict, scanner);
                 break;
             case 4:
-                AVDictController.deleteWord(dict, scanner, src);
+                FunctionOfDictionary.deleteWord(dict, scanner, src);
                 break;
             default:
                 System.out.println("Exit Dictionary");

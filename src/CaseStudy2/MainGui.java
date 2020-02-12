@@ -2,10 +2,10 @@ package CaseStudy2;
 
 import javax.swing.*;
 
-public class Main {
+public class MainGui {
     public static void main(String[] args) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-            Dictionary dictionary=new Dictionary();
-            dictionary.setVisible(true);
+        Hoanglinh hoanglinh=new Hoanglinh();
+        hoanglinh.setVisible(true);
     }
 }

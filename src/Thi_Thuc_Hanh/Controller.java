@@ -38,12 +38,10 @@ public class Controller {
    public void editListPhoneBook(ArrayList<Person>personArrayList,Scanner scanner,String src) throws IOException {
        System.out.println("vui long nhap so dien thoai ban muon sua :");
         String number=scanner.nextLine();
-        checkFormat.isCheck_Phone(number);
         for (int i=0;i<personArrayList.size();i++){
             if (personArrayList.get(i).getNumberPhone().equals(number)){
                 System.out.println("Số điện thoai: " );
                 String numberphone=scanner.nextLine();
-                checkFormat.isCheck_Phone(numberphone);
                 System.out.println("Nhóm: " );
                 String group=scanner.nextLine();
                 System.out.println("Họ và tên: " );
