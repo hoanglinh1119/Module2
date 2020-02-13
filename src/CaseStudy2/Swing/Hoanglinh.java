@@ -1,6 +1,11 @@
-package CaseStudy2;
+package CaseStudy2.Swing;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Hoanglinh extends JFrame{
     private JButton hoangLinhDictionaryButton;
@@ -13,21 +18,32 @@ public class Hoanglinh extends JFrame{
     private JButton addNewWordButton;
     private JButton deleteWordButton;
 
-    public Hoanglinh(){
-
-
-        add(hoangLinhDictionaryButton);
-        add(textArea1);
-        add(textArea2);
-        add(textArea3);
-        add(translateButton);
-        add(repairWordButton);
-        add(addNewWordButton);
-        add(deleteWordButton);
+    public Hoanglinh() {
+        final String src="anhviet109K.txt";
+        HashMap<String,String>dictionary=new HashMap<>();
+        SupportController hoangLinhController=new SupportController();
+        IOFileSupport ioFileSupport=new IOFileSupport();
+         ioFileSupport.readFile(src,dictionary);
+        ArrayList<String>arrayList=new ArrayList<>();
         add(root);
         setTitle("Hoang linh Dictionary");
         setSize(400,500);
         setLocationRelativeTo(null);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+
+        translateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                String string=getTextArea1().getText();
+              if (!"".equals(getTextArea1().getText())){
+                  textArea3.setText(ControllerDict.translateWordInDict(dictionary););
+
+              }
+            }
+        });
+
+
     }
 
     public JTextArea getTextArea1() {

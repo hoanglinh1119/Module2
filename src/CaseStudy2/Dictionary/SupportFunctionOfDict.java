@@ -1,4 +1,4 @@
-package CaseStudy2;
+package CaseStudy2.Dictionary;
 
 import java.io.FileInputStream;
 import java.io.IOException;

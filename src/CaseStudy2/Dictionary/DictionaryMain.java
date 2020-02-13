@@ -1,10 +1,10 @@
-package CaseStudy2;
+package CaseStudy2.Dictionary;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class ProgramMain {
+public class DictionaryMain {
     public static void main(String[] args) throws IOException {
 
         Scanner scanner=new Scanner(System.in);
