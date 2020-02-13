@@ -41,23 +41,26 @@ public class FunctionOfDictionary {
 
         System.out.println("Enter the word you want to search :");
         String searchWord=scanner.nextLine();
-        SupportFunctionOfDict.suggestionsWord(dict,searchWord);
-        System.out.println("Enter your chosen word: ");
-        String searchWordInDict=scanner.nextLine();
-        System.out.println("meaning: ");
-        SupportFunctionOfDict.searchAndDisplay(dict,searchWordInDict);
-        System.out.println("Complete!!!!!!");
+        if(SupportFunctionOfDict.suggestionsWord(dict,searchWord)){
+            System.out.println("Enter your chosen word: ");
+            String searchWordInDict=scanner.nextLine();
+            System.out.println("meaning: ");
+            SupportFunctionOfDict.searchAndDisplay(dict,searchWordInDict);
+            System.out.println("Complete!!!!!!");
+        }else System.out.println("Not word already exists");
     }
 
     public static void deleteWord(HashMap<String,String>dict,Scanner scanner,String src) throws IOException {
 
         System.out.println("Find the word you want to delete");
         String findWordDelete=scanner.nextLine();
-        SupportFunctionOfDict.suggestionsWord(dict,findWordDelete);
-        System.out.println("Enter the word you want to delete:");
-        String wordDelete=scanner.nextLine();
-        dict.remove(wordDelete);
-        FunctionIOFile.reload(dict,src);
-        System.out.println("Complete!!!!!!");
+        if(SupportFunctionOfDict.suggestionsWord(dict,findWordDelete)){
+            System.out.println("Enter the word you want to delete:");
+            String wordDelete=scanner.nextLine();
+            dict.remove(wordDelete);
+            FunctionIOFile.reload(dict,src);
+            System.out.println("Complete!!!!!!");
+        }else System.out.println("Not word already exists");
+
     }
 }

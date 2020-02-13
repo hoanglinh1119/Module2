@@ -37,7 +37,7 @@ public class Hoanglinh extends JFrame{
             public void actionPerformed(ActionEvent actionEvent) {
                 String string=getTextArea1().getText();
               if (!"".equals(getTextArea1().getText())){
-                  textArea3.setText(ControllerDict.translateWordInDict(dictionary););
+//                  textArea3.setText(ControllerDict.translateWordInDict(dictionary););
 
               }
             }

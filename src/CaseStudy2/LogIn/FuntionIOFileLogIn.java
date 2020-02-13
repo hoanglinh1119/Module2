@@ -7,9 +7,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class FuntionIOFileLogIn {
-    public void readFile(ArrayList<UserObject> userList, String srcInput ) throws IOException {
+    public static void readFile(ArrayList<UserObject> userList, String srcInput ) throws IOException {
         File file=new File(srcInput);
-        FileReader fileReader=new FileReader(file);
+        FileReader fileReader;
+        fileReader = new FileReader(file);
         BufferedReader bufferedReader=new BufferedReader(fileReader);
         String line;
         String[] user;
@@ -21,9 +22,7 @@ public class FuntionIOFileLogIn {
         bufferedReader.close();
         fileReader.close();
     }
-    public void writeMore(ArrayList<UserObject>userList, String id,String pass, String src) throws  IOException {
-        UserObject userObject=new UserObject(id,pass);
-        userList.add(userObject);
+    public static void writeMore(String id,String pass, String src) throws  IOException {
         FileWriter fileWriter=new FileWriter(src,true);
         fileWriter.write(id+","+pass+"\n");
         fileWriter.close();

@@ -1,12 +1,6 @@
 package CaseStudy2.Dictionary;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
-import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -24,16 +18,18 @@ public class SupportFunctionOfDict {
         return exist;
     }
 
-    public static void suggestionsWord(HashMap<String,String> dict,String suggestions){
+    public static boolean suggestionsWord(HashMap<String,String> dict, String suggestions){
         String regex=suggestions+".*";
+        boolean exist=false;
         Pattern pattern=Pattern.compile(regex);
         for (HashMap.Entry<String,String> entry:dict.entrySet()){
             String temp=entry.getKey();
             Matcher matcher=pattern.matcher(temp);
             if (matcher.find()){
                 System.out.println(temp);
+                exist=true;
             }
-        }
+        }return exist;
     }
     public static void searchAndDisplay(HashMap<String,String>dict,String searchWordInDict){
         for (HashMap.Entry<String,String> entry:dict.entrySet()){
