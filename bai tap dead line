@@ -1,0 +1,140 @@
+use deadline; 
+create table Class(
+cID int not null primary key ,
+cName nvarchar(255) not null,
+startDate date not null,
+statuss bit
+);
+drop table Class ;
+create table student(
+sID int not null primary key,
+sName nvarchar(30) not null,
+address nvarchar(50) not null,
+phone varchar(20),
+statuss bit,
+cID int not null 
+);
+create table Subjects(
+subID int not null primary key,
+subName nvarchar(30) not null,
+credit tinyint not null default  1, 
+ check(credit >=1),
+statuss bit default 1
+);
+create table Mark(
+mID int not null primary key,
+subID int not null ,
+sID int not null,
+ mark float default 0
+constraint check (mark between 0 and 100),
+examtimes tinyint default 1
+);
+
+/* cau 3
+*/
+alter table student add foreign key (cID) references Class(cID);
+alter table Class  add check (startDate=current_date());
+alter table Class  alter statuss  set default 1 ;
+alter table Mark
+add constraint foreign key (subID) references Subjects(subID);
+alter table  Mark
+add constraint foreign key (sID) references student(sID);
+
+/* cau 4 */
+insert into Class values(1,'A1','2008/10/20',1) ,
+                    (2,'A2','2008/10/22',1),
+                    (3,'B3',current_date(),0);
+					
+
+			
+insert into student values(1,'hung','ha noi','0912113113',1,1),
+                           (2,'hoa','hai phong','',1,1),
+                            (3,'Manh','HCM','0123123123',0,2);
+insert into subjects values(1,'CF',5,1),
+                            (2,'C',6,1),
+                            (3,'HDJ',5,1),
+                            (4,'RDBMS',10,1);
+ insert into Mark values(1,1,1,8,1),
+                         (2,1,2,10,2),
+                         (3,2,1,12,1);
+                         select * from Mark;
+                         
+                         
+/* cau 5*/
+/*a*/
+set SQL_SAFE_UPDATES=0;
+/*b*/
+update student set student.cID=2 
+where sName='hung';
+/*c*/
+ update student set phone='NO PHONE'
+ where phone='';
+ /*d*/
+ Update Class
+Set cName=concat('new',cName)
+Where statuss =0;
+/*e*/
+update Class
+set cName =replace(cName,'new','old')
+where statuss=1 and cName like 'new%';
+/*f*/
+update Class
+set statuss=0
+where cID not in (select cID from student);
+/*g*/
+update subjects
+set statuss=0
+where subID not in (select subID from Mark);
+/*6*/
+/*a*/
+select * from student where sName like 'h%' ;
+/*b*/
+select *from Class where month(startDate)='12';
+/*c*/
+select max(credit) from subjects;
+/*d*/
+select * from subjects where credit=(select max(credit) from subjects);
+/*a*/
+select *from subjects where credit between 3 and 5;
+/*e*/
+select Class.cID,Class.cName,student.sname,student.address from Class  
+inner join student on Class.cID=student.cID;
+/*f*/
+select * from subjects
+ where subID not in (select subID from Mark);
+ /*g*/
+ select *from subjects inner join Mark
+ on subjects.subID=Mark.subID where Mark= (select max(Mark)from Mark);
+ /*a*/
+select student.sID,sName,address,phone,statuss,cID,avg(Mark) as DTB from student
+join Mark on student.sID= Mark.sID
+group by student.sID,sName,address,phone,statuss,cID;
+/*h*/
+select student.sID,sName,address,phone,statuss,cID,avg(Mark) as DTB,rank ()over(order by avg(Mark) DESC )as XH from student
+join Mark on student.sID=Mark.sID
+group by student.sID,sName,address,phone,statuss,cID;
+/*i*/
+select student.sID,sName,address,phone,statuss,cID,avg(Mark) as DTB from student
+join Mark on student.sID= Mark.sID
+group by student.sID,sName,address,phone,statuss,cID
+having avg(Mark)>10;
+/*j*/
+select Student.sName,subjects.subName,Mark from student
+join Mark on Mark.sID=student.sID
+ inner join subjects on  subjects.subID=Mark.subID
+ order by Mark DESC, sName DESC;
+ /* 7*/
+ delete from  Class where statuss=0;
+ delete from subjects where subjects.subID not in (select subID from Mark);
+ /*8*/
+ alter table Mark drop examtimes;
+ alter table Class change column statuss ClassStatus bit;
+ rename table Mark to  SubjectTest;
+ 
+ select * from subjects;
+select * from student;
+select * from Class;
+select * from SubjectTest;
+create database Master;
+use Master;
+drop database Master;
