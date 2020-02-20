@@ -1,0 +1,44 @@
+use bansach;
+create table Users(
+UserId varchar(10) primary key,
+UserName varchar(20),
+NumberPhone varchar(12),
+Address text(50)
+);
+drop table Users;
+create table Book(
+BookId varchar(10) primary key,
+BookName varchar(100),
+BookspeciesId varchar(10),
+foreign key (BookspeciesId) references BookSpecies(BookSpeciesId)
+);
+drop table Book;
+create table BookSpecies(
+BookSpeciesId varchar(10) primary key,
+BookSpecies varchar(30)
+);
+
+create table BookBasket(
+BookBasketId varchar(10),
+UserId  varchar(10),
+BookId varchar(10),
+BookAmount varchar(10),
+foreign key (UserId) references Users(UserId),
+foreign key(BookId) references Book(BookId)
+
+);
+insert into Users values('nd01','nguyen hoang','0963886556','my dinh');
+insert into users values('nd02','nguyen linh','0982243340','nam dinh');
+insert into users values('nd03','le hoang','0984464654','hung yen');
+insert into Book values('b01','bo gia','a1');
+insert into book values('b02','kheo an kheo noi','a2');
+insert into Book values('b03','co be lo lem','a3');
+insert into bookspecies values('a1','tieu thuyet'),
+								('a2','xa luan'),
+								('a3','chuyen co tich');
+insert  into bookbasket values('a1','nd01','b01',3);                               
+
+select BookId,BookName,book.BookspeciesId,bookspecies.BookSpecies from book
+inner join bookspecies on book.BookspeciesId=bookspecies.BookspeciesId;
+select *from users where UserId='nd01' and Address='my dinh';
+select *from users where UserId='nd01' or Address='nam dinh';
